@@ -1,0 +1,55 @@
+{
+    "name": "@ais-stack/logger",
+    "version": "0.0.1",
+    "description": "A high-performance, structured logger for Node.js with TypeScript support",
+    "type": "module",
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "sideEffects": false,
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.js"
+        }
+    },
+    "files": ["dist", "README.md", "LICENSE"],
+    "scripts": {
+        "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+        "lint": "biome check .",
+        "lint:fix": "biome check --write .",
+        "typecheck": "tsc --noEmit",
+        "demo": "tsx examples/visual-formatter-demo.ts",
+        "prepublishOnly": "pnpm run build"
+    },
+    "keywords": [
+        "logger",
+        "logging",
+        "structured",
+        "json",
+        "typescript",
+        "performance",
+        "microservices",
+        "observability",
+        "pino",
+        "winston"
+    ],
+    "author": "Jean-Pierre Dupuis",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SkyZonDev/ais-logger.git"
+    },
+    "license": "MIT",
+    "packageManager": "pnpm@10.28.2",
+    "devDependencies": {
+        "@biomejs/biome": "2.3.15",
+        "@types/node": "^25.2.3",
+        "tsup": "^8.5.1",
+        "tsx": "^4.21.0",
+        "typescript": "^5.9.3"
+    },
+    "engines": {
+        "node": ">=18"
+    }
+}

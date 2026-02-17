@@ -1,0 +1,109 @@
+{
+    "$schema": "https://biomejs.dev/schemas/2.3.15/schema.json",
+    "vcs": {
+        "enabled": true,
+        "clientKind": "git",
+        "useIgnoreFile": true
+    },
+    "files": {
+        "ignoreUnknown": false
+    },
+    "formatter": {
+        "enabled": true,
+        "formatWithErrors": false,
+        "indentStyle": "space",
+        "indentWidth": 4,
+        "lineEnding": "lf",
+        "lineWidth": 80,
+        "attributePosition": "auto",
+        "bracketSameLine": false,
+        "bracketSpacing": true,
+        "expand": "auto",
+        "useEditorconfig": true,
+        "includes": [
+            "**",
+            "!**/node_modules",
+            "!**/build",
+            "!**/dist",
+            "!**/coverage",
+            "!**/.pnpm-store",
+            "!next-env.d.ts"
+        ]
+    },
+    "linter": {
+        "enabled": true,
+        "rules": {
+            "recommended": false,
+            "complexity": {
+                "noUselessTypeConstraint": "error"
+            },
+            "correctness": {
+                "noUnusedVariables": {
+                    "level": "error",
+                    "options": {
+                        "ignoreRestSiblings": true
+                    }
+                }
+            },
+            "performance": {
+                "noImgElement": "warn",
+                "noUnwantedPolyfillio": "warn",
+                "useGoogleFontPreconnect": "warn"
+            },
+            "style": {
+                "noCommonJs": "error",
+                "noHeadElement": "warn",
+                "noNamespace": "error",
+                "useArrayLiterals": "error",
+                "useAsConstAssertion": "error"
+            },
+            "suspicious": {
+                "noDocumentImportInPage": "error",
+                "noExplicitAny": "error",
+                "noExtraNonNullAssertion": "error",
+                "noHeadImportInDocument": "error",
+                "noMisleadingInstantiator": "error",
+                "noNonNullAssertedOptionalChain": "error",
+                "noUnsafeDeclarationMerging": "error",
+                "useGoogleFontDisplay": "warn",
+                "useNamespaceKeyword": "error"
+            }
+        },
+        "includes": [
+            "**",
+            "!.next/**",
+            "!out/**",
+            "!build/**",
+            "!next-env.d.ts",
+            "!.next/**",
+            "!out/**",
+            "!build/**",
+            "!next-env.d.ts",
+            "!.next/**",
+            "!out/**",
+            "!build/**",
+            "!next-env.d.ts"
+        ]
+    },
+    "javascript": {
+        "formatter": {
+            "jsxQuoteStyle": "double",
+            "quoteProperties": "asNeeded",
+            "trailingCommas": "es5",
+            "semicolons": "always",
+            "arrowParentheses": "always",
+            "bracketSameLine": false,
+            "quoteStyle": "single",
+            "attributePosition": "auto",
+            "bracketSpacing": true
+        }
+    },
+    "assist": {
+        "enabled": true,
+        "actions": {
+            "source": {
+                "organizeImports": "on"
+            }
+        }
+    }
+}
