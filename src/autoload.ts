@@ -2,6 +2,7 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
+import { pathToFileURL } from 'url';
 
 /**
  * Config file names scanned in order, relative to process.cwd().
@@ -34,7 +35,7 @@ const SCAN_DIRS = [
  *
  * Opt-out: set LOGGER_NO_AUTOLOAD=true in your environment.
  */
-export function tryAutoLoad(): string | null {
+export async function tryAutoLoad(): Promise<string | null> {
     // Escape hatch — useful in environments that manage config differently
     if (process.env['LOGGER_NO_AUTOLOAD'] === 'true') {
         return null;
@@ -47,8 +48,7 @@ export function tryAutoLoad(): string | null {
             if (!fs.existsSync(fullPath)) continue;
 
             try {
-                // biome-ignore lint: This dynamic require is intentional for autoloading configs.
-                require(fullPath);
+                await import(pathToFileURL(fullPath).href);
                 return fullPath;
             } catch (err) {
                 // MODULE_NOT_FOUND can happen when the file exists on disk but one

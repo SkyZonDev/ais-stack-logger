@@ -1,22 +1,22 @@
 {
     "name": "@ais-stack/logger",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "A high-performance, structured logger for Node.js with TypeScript support",
     "type": "module",
-    "main": "dist/index.js",
-    "module": "dist/index.mjs",
+    "main": "dist/index.cjs",
+    "module": "dist/index.js",
     "types": "dist/index.d.ts",
     "sideEffects": false,
     "exports": {
         ".": {
             "types": "./dist/index.d.ts",
-            "import": "./dist/index.mjs",
-            "require": "./dist/index.js"
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs"
         }
     },
     "files": ["dist", "README.md", "LICENSE"],
     "scripts": {
-        "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+        "build": "tsup src/index.ts --format esm,cjs --dts --clean",
         "lint": "biome check .",
         "lint:fix": "biome check --write .",
         "typecheck": "tsc --noEmit",
